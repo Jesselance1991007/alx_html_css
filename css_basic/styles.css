@@ -1,74 +1,82 @@
-/* styles.css */
-
-/* General body styling */
+//* Body and main containers use flexbox */
 body {
-    background-color: #f9f9f9;
-    color: #222;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-/* Styling for the article section */
+main {
+  display: flex;
+  flex-direction: row;
+  flex: auto; /* auto width and height */
+  gap: 1rem; /* space between article and aside */
+  padding: 1rem;
+}
+
+/* Article takes 2/3 of space */
 article {
-    background-color: #ffffff;
-    border: 2px solid #e0e0e0;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  flex: 2;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
 }
 
-/* Headings inside article */
-article h1 {
-    color: #1a73e8;
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 15px;
+/* Aside takes 1/3 of space */
+aside {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #e9ecef;
+  border-radius: 8px;
 }
 
-/* Paragraphs inside article */
-article p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 15px;
+/* Header styles */
+header ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  background-color: #007acc;
 }
 
-/* Styling for images inside article */
-article img {
-    max-width: 100%;
-    border-radius: 8px;
-    display: block;
-    margin: 10px auto;
+header ul li {
+  margin-right: 1.5rem;
 }
 
-/* Table styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+header ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-table th, table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
-
-table th {
-    background-color: #e8f0fe;
-    color: #333;
-}
-
-/* Footer styling */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #666;
-}
-
-/* Logo styling (optional, overrides base.css if needed) */
+/* Logo styles - bigger font size */
 .logo {
-    font-size: 2rem;
-    color: #1a73e8;
-    font-weight: bold;
+  font-size: 2rem;
+  color: #ffd700;
+  margin-right: 2rem;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #007acc;
+  color: white;
+  margin-top: auto;
+}
+
+/* Responsive tweaks for smartphones (optional if you want) */
+body.works_on_smartphone main {
+  flex-direction: column;
+}
+
+body.works_on_smartphone article,
+body.works_on_smartphone aside {
+  flex: unset;
+  width: 100%;
+  margin-bottom: 1rem;
 }
